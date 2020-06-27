@@ -360,6 +360,11 @@ form span{
 @media all and (max-width: 800px){
 /**********Header 800px ********/
 
+h1{
+  clear: both;
+}
+
+
   nav:first-child{
    background: red;
   }
