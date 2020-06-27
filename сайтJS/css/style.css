@@ -1,9 +1,9 @@
 *{
-	margin:0 auto;
+  margin:0 auto;
 }
  
  body{
-	background-color: #f2f4f8;
+  background-color: #f2f4f8;
 }
 
 ul{
@@ -20,7 +20,7 @@ p{
 
 /******hide***/
 .navbar{
-  	display: none;
+    display: none;
     position: relative;
   }
 /******hide END***/
@@ -32,8 +32,8 @@ header {
 }
 
 .header,.nav_top{
-	max-width: 960px;
-	margin:0 auto;
+  max-width: 960px;
+  margin:0 auto;
 }
 
 img[data-filetype="logo"] {
@@ -53,18 +53,18 @@ img[data-filetype="logo"] {
   border-bottom: dashed 1px;  
 }
 .header div a{
-	color: #727989;
-	text-decoration: none;
-	cursor: pointer;
+  color: #727989;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .header div i {
-	margin: 0 25px 0 5px;
-	font-size: 18px;
+  margin: 0 25px 0 5px;
+  font-size: 18px;
 }
 
 .fa-search:before {
-	margin: 0 -10px 0 20px;
+  margin: 0 -10px 0 20px;
 }
 
 .userPhoto {
@@ -82,20 +82,20 @@ img[data-filetype="logo"] {
 
 /****************NAVIGATION*************/
 nav{
-	background-color: #646d81;
+  background-color: #646d81;
 }
 
 .nav_top ul
 {
-	padding-inline-start: 0px;
+  padding-inline-start: 0px;
 }
 
 .nav_top ul>li{
-	display: inline-block;
+  display: inline-block;
 }
 
 .nav_top ul>li>a{
-	text-decoration: none;
+  text-decoration: none;
     color: white;
     display: inline-block;
     padding: 7px 0 12px;
@@ -360,6 +360,13 @@ form span{
 @media all and (max-width: 800px){
 /**********Header 800px ********/
 
+.content h1{
+  clear: both;
+  padding: 0;
+}
+
+
+
   nav:first-child{
    background: red;
   }
@@ -378,12 +385,14 @@ form span{
 }
    
    header{
-   	text-align: center;
+    text-align: center;
     height: 60px;
    }
    
    .header{
-    margin-bottom: -60px;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
    }
   img[data-filetype="logo"] {
     width: 30px;
@@ -396,14 +405,14 @@ form span{
 }
 
  .navbar{
- 	display: flex;
+  display: flex;
  }
 
 
 .right_side{
-  	float: none;
-  	margin: 0 auto;
-  	padding-top: 20px;
+    float: none;
+    margin: 0 auto;
+    padding-top: 20px;
     text-align: center;
     width: 400px;
     position: relative;
@@ -411,7 +420,7 @@ form span{
 }
 
 .navbar-brand{
-	color: #727989;
+  color: #727989;
 }
 
 .navbar-nav{
@@ -536,7 +545,3 @@ input[type="text"]{
 }
 
 }
-
-
-
-
