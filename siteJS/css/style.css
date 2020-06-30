@@ -2,7 +2,11 @@
  
  body{
   background-color: #f2f4f8;
+  min-height: 100vh;
 }
+
+
+
 
 ul{
   margin: 0;
@@ -134,10 +138,7 @@ nav{
     max-width: 170px;
     list-style-type: none;
     text-align: left;
-    display: grid;
     padding-inline-start: 0px;
-    margin: 0;
-    grid-template-rows:  1fr 85px;
 }
 
 
@@ -194,6 +195,8 @@ padding-inline-start: 0px;
 .content{
   display: grid;
   border-left: solid #e0e4ed 1px;
+  min-height: 100vh;
+  grid-template-rows: 100px 50px 160px 160px 160px 200px 1fr;
 }
 
 .content h1 {
