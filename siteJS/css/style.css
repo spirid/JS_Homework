@@ -1,10 +1,12 @@
-*{
-  margin:0 auto;
-}
+
  
  body{
   background-color: #f2f4f8;
+  min-height: 100vh;
 }
+
+
+
 
 ul{
   margin: 0;
@@ -126,12 +128,17 @@ nav{
 /****************main END**********/
 
 /****************menu*************/
+
+.baner{
+  width: 100%;
+  height: 100%;
+}
+
 .main menu {
     max-width: 170px;
-    float: left;
-    display: contents;
     list-style-type: none;
     text-align: left;
+    padding-inline-start: 0px;
 }
 
 
@@ -148,9 +155,9 @@ nav{
 
 .main menu ul li:hover{
     border-left: solid #99a1b3 5px;
-    transition-duration: 1s;
     color:black;
 }
+
 .main menu ul li:hover a{
   color:black;
 }
@@ -162,21 +169,35 @@ nav{
     color: #99a1b3;
 }
 
-.submenu{
-    padding: 9px 28px 9px 28px;
+.main menu ul li.submenu{
+    border-left: solid white 5px;
     margin-top: 32px;
     font: 18px Georgia;
+    animation: none;
+    display: block;
+
+}
+
+.main menu ul li.submenu:hover {
+    border-left: solid white 5px;
 }
 
 menu >ul{
+display: grid;
 padding-top:20px;
 padding-inline-start: 0px;
-border-right: solid #e0e4ed 1px;
 }
 /****************menu END**********/
 
 
 /****************Content**********/
+
+.content{
+  display: grid;
+  border-left: solid #e0e4ed 1px;
+  min-height: 100vh;
+  grid-template-rows: 100px 50px 160px 160px 160px 200px 1fr;
+}
 
 .content h1 {
     padding: 30px 0 20px 30px;
@@ -199,6 +220,7 @@ form span{
 }
 
 .form{
+    height: 50px;
     background-color: #f2f4f8;
     padding: 5px 30px;
     color: #99a1b3;
@@ -360,9 +382,14 @@ form span{
 @media all and (max-width: 800px){
 /**********Header 800px ********/
 
+.main menu{
+  display: none;
+}
+
+
 .content h1{
   clear: both;
-  padding: 0;
+  padding: 30px;
 }
 
 
@@ -374,15 +401,14 @@ form span{
   .content{
     position: relative;
     transition: all 0.5s ease 0s;
+    min-width: 320px;
   }
 
   nav{
   display: none;
   }
 
-  ul{
- display: none;
-}
+
    
    header{
     text-align: center;
@@ -458,6 +484,7 @@ h1{
 .main{
   display: contents;
 }
+
 menu{
   display: none;
 }
