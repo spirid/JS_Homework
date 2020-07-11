@@ -48,6 +48,8 @@
   //     isPalindrome('привет'); // false
 
 
+//1  вариант 
+
 function isPalindrome(word) {
       word.toLowerCase();
 
@@ -65,6 +67,26 @@ function isPalindrome(word) {
 }
 
 console.log(isPalindrome("кок"));
+
+//2 вариант
+
+function isPalindrome(word) {
+  word = word.toLowerCase();
+  var tempWordArr = reverseString(word);
+   
+  for(var i = 0; i < tempWordArr.length; i++){
+     if(tempWordArr[i] == word[i])
+      return true;
+     return false;
+  }
+}
+
+function reverseString(str) {
+      return str.split('').reverse().join('');
+}
+
+console.log(isPalindrome('шалаШ'));
+console.log(isPalindrome('кол'));
 
 
 // Задание 4:
