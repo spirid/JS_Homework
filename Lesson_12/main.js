@@ -104,16 +104,30 @@ function areAnagrams(wordOne,wordTwo) {
 //       divideArr([1, 2, 3, 4], 2); // [[1, 2], [3, 4]]
 //       divideArr([1, 2, 3, 4, 5, 6, 7, 8], 3); // [[1, 2, 3], [4, 5, 6], [7, 8]]
 
+// 1 вариант
+
 function divideArr(mainArr,countArr){
   var tempArr=[],
-      minArr=Math.ceil(mainArr.length/countArr),
       i=0;
-      
+
       while (mainArr.length)
-       tempArr[i++]=mainArr.splice(0,minArr)
+       tempArr[i++]=mainArr.splice(0,countArr)
       console.log(tempArr);
 }
 
 
       divideArr([1, 2, 3, 4], 2); // [[1, 2], [3, 4]]
       divideArr([1, 2, 3, 4, 5, 6, 7, 8], 3); // [[1, 2, 3], [4, 5, 6], [7, 8]]
+//2 вариант
+
+function divideArr(mainArr,countArr){
+      var temp = []
+      while(mainArr.length) {
+        temp.push(mainArr.splice(0, countArr))
+      }     
+      console.log(temp)
+}
+    
+    
+divideArr([1, 2, 3, 4], 2); // [[1, 2], [3, 4]]
+divideArr([1, 2, 3, 4, 5, 6, 7, 8], 3); // [[1, 2, 3], [4, 5, 6], [7, 8]]
