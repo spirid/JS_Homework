@@ -2,7 +2,6 @@
  
  body{
   background-color: #f2f4f8;
-  min-height: 100vh;
 }
 
 
@@ -195,7 +194,6 @@ padding-inline-start: 0px;
 .content{
   display: grid;
   border-left: solid #e0e4ed 1px;
-  min-height: 100vh;
   grid-template-rows: 100px 50px 160px 160px 160px 200px 1fr;
 }
 
