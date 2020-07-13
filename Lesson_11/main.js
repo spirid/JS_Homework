@@ -2,55 +2,54 @@
     Переписать предыдущий пример с кошками на прототипный стиль ООП. */
 
 
-function Animal( name ) {
-   this.name = name;
-}
-
-Animal.prototype._foodAmount = 50;
-
-Animal.prototype._formatFoodAmount = function() {
-   return this._foodAmount + 'гр.';
-}
-
-Animal.prototype.feed = function() {
-   console.log( 'Насыпаем в миску ' + this.dailyNorm() + ' корма.' );
-};
-
-Animal.prototype.dailyNorm = function( amount ) {
-   
-   if ( !arguments.length ) return this._formatFoodAmount();
-   
-   if ( amount < 50 || amount > 500 ) {
-      throw new Error( 'Корма не должно быть меньше 50гр. или больше 500гр.' );
+function Animal(name) {
+      this._foodAmount = 50;
+      this.name = name;
    }
    
-   this._foodAmount = amount;
+   Animal.prototype._formatFoodAmount = function() {
+      return this._foodAmount + 'гр.';
+   }
    
-}
+   Animal.prototype.feed = function() {
+      console.log('Насыпаем в миску ' + this.dailyNorm() + ' корма.');
+   };
+   
+   Animal.prototype.dailyNorm = function(amount) {
+      
+      if (!arguments.length) return this._formatFoodAmount();
+      
+      if (amount < 50 || amount > 500) {
+         throw new Error( 'Корма не должно быть меньше 50гр. или больше 500гр.' );
+      }
+      
+      this._foodAmount = amount;    
+   }
+   
+function Cat() {
+      Animal.apply(this, arguments);
 
-function Cat( name ) {
-   this.name = name;
-   this._animalFeed = this.feed;
-}
+      var _feed = this.feed;
+      this.feed = function() {
+            _feed.call(this);
+            console.log('Кот доволен ^_^');
+            return this;
+      }
+   }
+   
+   Cat.prototype = Object.create(Animal.prototype);
+   Cat.prototype.constructor = Cat;
+   
+   var barsik = new Cat('Барсик');
 
-Cat.prototype = Object.create( Animal.prototype );
-Cat.prototype.constructor = Cat;
-
-var barsik = new Cat( 'Барсик' );
-
-Cat.prototype.feed = function() {
-   this._animalFeed();
-   console.log( 'Кот доволен ^_^' );
-   return this;
-};
-Cat.prototype.stroke = function() {
-   console.log( 'Гладим кота.' );
-   return this;
-}
-
-console.log( barsik.name );
-barsik.dailyNorm( 100 );
-barsik.feed().stroke().feed().stroke();
+   Cat.prototype.stroke = function() {
+      console.log('Гладим кота.');
+      return this;
+   }
+   
+   console.log(barsik.name);
+   barsik.dailyNorm( 100 );
+   barsik.feed().stroke().feed().stroke();
 
 
 
@@ -63,33 +62,22 @@ barsik.feed().stroke().feed().stroke();
 
 
 function deepClone(obj) {
-       var rv;
- 
-       switch (typeof obj) {
-           case "object":
-               if (obj === null) {
-                   rv = null;
-               } else {
-                   switch (toString.call(obj)) {
-                       case "[object Array]":
-                           rv = obj.map(deepCopy);
-                           break;
-                       default:
-                           rv = Object.keys(obj).reduce(function(prev, key) {
-                               prev[key] = deepClone(obj[key]);
-                               return prev;
-                           }, {});
-                           break;
-                   }
-               }
-               break;
-           default:
-               rv = obj;
-               break;
-       }
-       return rv;
+      var out = {};
+    
+      if (typeof obj !== "object" || obj === null) {
+        return obj
+      }   
+      
+      out = Array.isArray(obj) ? [] : {}
+    
+      for (var key in obj) {
+        var value = obj[key]
+        out[key] = deepClone(value)
+      }
+    
+      return out
 }
- 
+
  var initialObj = {
           string: 'Vasya',
           number: 30,
@@ -116,7 +104,6 @@ function deepClone(obj) {
  
       console.log(initialObj);
       console.log(clonedObj);
-
 
 
 
