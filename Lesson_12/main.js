@@ -28,15 +28,18 @@
 // Задание 2:
 //     Написать функцию, принимающую массив чисел и возвращающую первое найденное положительное число.
 
-  var array = [-1, -2, 3, -4],
-      filtred;
-
-  filtred = array.find( 
-    function checkNumber( currentValue ) {
+  function filtred(array){
+    return array.find( 
+    function(currentValue) {
       return currentValue > 0; 
     } 
   );
-   console.log(filtred);
+}
+   
+
+ var array = [-1, -2, 3, -4];
+     
+ console.log(filtred(array));
 
 
   // Задание 3:
@@ -48,37 +51,14 @@
   //     isPalindrome('привет'); // false
 
 
-//1  вариант 
-
-function isPalindrome(word) {
-      word.toLowerCase();
-
-  var tempWordArr = word.split('').reverse(),
-      mainWordArr = word.split(''),
-      bool;
-   
-  for(var i = 0;i < tempWordArr.length;i++){
-     if(tempWordArr[i] == mainWordArr[i])
-      bool = true;
-     else {bool = false; break};
-  }
-  
-  return(bool);
-}
-
-console.log(isPalindrome("кок"));
-
-//2 вариант
-
+//correct  вариант 
 function isPalindrome(word) {
   word = word.toLowerCase();
   var tempWordArr = reverseString(word);
-   
-  for(var i = 0; i < tempWordArr.length; i++){
-     if(tempWordArr[i] == word[i])
+    console.log(word+" "+tempWordArr)
+     if(tempWordArr == word)
       return true;
      return false;
-  }
 }
 
 function reverseString(str) {
@@ -102,17 +82,12 @@ function areAnagrams(wordOne,wordTwo) {
       wordOne.toLowerCase();
       wordTwo.toLowerCase();
 
-  var wordOne = wordOne.split('').sort(),
-      wordTwo = wordTwo.split('').sort(),
-      bool;
-   
-  for(var i = 0;i < wordOne.length;i++){
-     if(wordOne[i] == wordTwo[i])
-      bool = true;
-     else {bool = false; break};
-  }
-  
-  return(bool);
+  var wordOne = wordOne.split('').sort().join(''),
+      wordTwo = wordTwo.split('').sort().join('');
+    
+     if(wordOne === wordTwo)
+      return true;
+     else return false;
 }
 
       console.log(areAnagrams('кот', 'отк')); // true
