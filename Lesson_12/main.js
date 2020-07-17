@@ -54,19 +54,16 @@
 //correct  вариант 
 function isPalindrome(word) {
   word = word.toLowerCase();
-  var tempWordArr = reverseString(word);
+  var tempWordArr = word.split('').reverse().join('');
     console.log(word+" "+tempWordArr)
      if(tempWordArr == word)
       return true;
      return false;
 }
 
-function reverseString(str) {
-      return str.split('').reverse().join('');
-}
-
 console.log(isPalindrome('шалаШ'));
 console.log(isPalindrome('кол'));
+
 
 
 // Задание 4:
