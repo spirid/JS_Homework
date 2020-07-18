@@ -2,55 +2,54 @@
     Переписать предыдущий пример с кошками на прототипный стиль ООП. */
 
 
-function Animal( name ) {
-   this.name = name;
-}
-
-Animal.prototype._foodAmount = 50;
-
-Animal.prototype._formatFoodAmount = function() {
-   return this._foodAmount + 'гр.';
-}
-
-Animal.prototype.feed = function() {
-   console.log( 'Насыпаем в миску ' + this.dailyNorm() + ' корма.' );
-};
-
-Animal.prototype.dailyNorm = function( amount ) {
-   
-   if ( !arguments.length ) return this._formatFoodAmount();
-   
-   if ( amount < 50 || amount > 500 ) {
-      throw new Error( 'Корма не должно быть меньше 50гр. или больше 500гр.' );
+function Animal(name) {
+      this._foodAmount = 50;
+      this.name = name;
    }
    
-   this._foodAmount = amount;
+   Animal.prototype._formatFoodAmount = function() {
+      return this._foodAmount + 'гр.';
+   }
    
-}
+   Animal.prototype.feed = function() {
+      console.log('Насыпаем в миску ' + this.dailyNorm() + ' корма.');
+   };
+   
+   Animal.prototype.dailyNorm = function(amount) {
+      
+      if (!arguments.length) return this._formatFoodAmount();
+      
+      if (amount < 50 || amount > 500) {
+         throw new Error( 'Корма не должно быть меньше 50гр. или больше 500гр.' );
+      }
+      
+      this._foodAmount = amount;    
+   }
+   
+function Cat() {
+      Animal.apply(this, arguments);
 
-function Cat( name ) {
-   this.name = name;
-   this._animalFeed = this.feed;
-}
+      var _feed = this.feed;
+      this.feed = function() {
+            _feed.call(this);
+            console.log('Кот доволен ^_^');
+            return this;
+      }
+   }
+   
+   Cat.prototype = Object.create(Animal.prototype);
+   Cat.prototype.constructor = Cat;
+   
+   var barsik = new Cat('Барсик');
 
-Cat.prototype = Object.create( Animal.prototype );
-Cat.prototype.constructor = Cat;
-
-var barsik = new Cat( 'Барсик' );
-
-Cat.prototype.feed = function() {
-   this._animalFeed();
-   console.log( 'Кот доволен ^_^' );
-   return this;
-};
-Cat.prototype.stroke = function() {
-   console.log( 'Гладим кота.' );
-   return this;
-}
-
-console.log( barsik.name );
-barsik.dailyNorm( 100 );
-barsik.feed().stroke().feed().stroke();
+   Cat.prototype.stroke = function() {
+      console.log('Гладим кота.');
+      return this;
+   }
+   
+   console.log(barsik.name);
+   barsik.dailyNorm( 100 );
+   barsik.feed().stroke().feed().stroke();
 
 
 
@@ -63,33 +62,22 @@ barsik.feed().stroke().feed().stroke();
 
 
 function deepClone(obj) {
-       var rv;
- 
-       switch (typeof obj) {
-           case "object":
-               if (obj === null) {
-                   rv = null;
-               } else {
-                   switch (toString.call(obj)) {
-                       case "[object Array]":
-                           rv = obj.map(deepCopy);
-                           break;
-                       default:
-                           rv = Object.keys(obj).reduce(function(prev, key) {
-                               prev[key] = deepClone(obj[key]);
-                               return prev;
-                           }, {});
-                           break;
-                   }
-               }
-               break;
-           default:
-               rv = obj;
-               break;
-       }
-       return rv;
+      var out = {};
+    
+      if (typeof obj !== "object" || obj === null) {
+        return obj
+      }   
+      
+      out = Array.isArray(obj) ? [] : {}
+    
+      for (var key in obj) {
+        var value = obj[key]
+        out[key] = deepClone(value)
+      }
+    
+      return out
 }
- 
+
  var initialObj = {
           string: 'Vasya',
           number: 30,
@@ -120,37 +108,11 @@ function deepClone(obj) {
 
 
 
-
 /* Задание 3:
     Написать функцию глубокого сравнения объектов, возвращающую boolean. Сравниваться должны значения всех типов данных
     (+ массивы и функции), а также любого уровня вложенности. Для определения длины объектов разрешается использовать
     метод Object.keys(). Хорошо протестировать работу функции (можно на примере из пред. задания).
 */
-
-
-function deepCompare( obj1, obj2 ) {
-   if ( obj1 === null || obj1 === undefined || obj2 === null || obj2 === undefined ) {
-      return false;
-   }
-   
-   for ( var key in obj1 ) {
-      if(!obj2.hasOwnProperty(key)){
-         return false;
-      }
-      
-      if(typeof obj1[key] == 'object' && obj1[key] != null){
-         return deepCompare( obj1[key], obj2[key] )
-      }
-   }
-   
-   for ( var key in obj2 ) {
-      if(!obj1.hasOwnProperty(key)){
-         return false;
-      }
-   }
-   
-   return true;
-}
 
 
 var initialObj = {
@@ -180,7 +142,6 @@ clonedObj.object.object2.array2[1].name = 'Vasya';
 clonedObj.array.push( 2 );
 console.log( "cloned: " + deepCompare( initialObj, clonedObj ) )
 
-
 var initialObj2 = {
    string : 'Vasya',
    number : 30,
@@ -199,7 +160,27 @@ var initialObj2 = {
       alert( 'Hello' );
    }
 };
-console.log( "false or true: " + deepCompare( initialObj, initialObj2 ) )
+console.log( "some?: " + deepCompare( initialObj, initialObj2 ) )
+
+var initialObj3 = {
+   string : 'Vasya',
+   number : 30,
+   boolean : true,
+   undefined : undefined,
+   null : null,
+   array : [ 1, 2, 3, 10 ],
+   object : {
+      string2 : 'Petrov',
+      object2 : {
+         array2 : [ {}, { name : '123' } ]
+      },
+      object3 : {}
+   },
+   method : function() {
+      alert( 'Hello' );
+   }
+};
+console.log( "some?: " + deepCompare( initialObj, initialObj3 ) )
 
 function deepClone( obj ) {
    if ( !obj ) return obj;
@@ -220,4 +201,55 @@ function deepClone( obj ) {
    }
    
    return newObj;
+}
+
+
+function deepCompare( objectA, objectB ) {
+   var equal = true;
+   
+   if ( objectA === null || objectA === undefined || objectB === null || objectB === undefined ) {
+      equal = false;
+   }
+   
+   if ( Object.keys( objectA ).length !== Object.keys( objectB ).length ) {
+      equal = false;
+   }
+   
+   for (key in objectA){
+      if ( !objectB.hasOwnProperty( key ) ) {
+         equal = false;
+      }
+      
+      if(typeof objectA[key] === 'string' || typeof objectA[key] === 'number' || typeof objectA[key] === 'boolean' || objectA[key] === null || objectA[key] === undefined){
+         if ( objectA[key] !== objectB[key]) {
+            equal = false;
+         }
+      }else {
+         if(objectA[key] instanceof Function){
+            if(Object(objectA[key]).toString() !== Object(objectB[key]).toString()){
+               equal = false;
+            }
+         }else if(objectA[key] instanceof Array){
+            if(objectA[key].length !== objectB[key].length){
+               equal = false;
+            }else{
+               if(!deepCompare(objectA[key], objectB[key])){
+                  equal = false;
+               }
+            }
+         }else{
+            if(!deepCompare(objectA[key], objectB[key])){
+               equal = false;
+            }
+         }
+      }
+   }
+   
+   for (key in objectA){
+      if ( !objectA.hasOwnProperty( key ) ) {
+         equal = false;
+      }
+   }
+   
+   return equal;
 }
