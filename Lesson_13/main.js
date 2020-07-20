@@ -28,7 +28,6 @@ console.log(isTime(['00', '13', '24']));
   //   должно быть "топорным".
 
 var arrAlfabet=['a', 'e' , 'y', 'u', 'i', 'o', 'а', 'е', 'и', 'э', 'о', , 'ю' ,'я'];
-    var counter=0;
 
 function isVowelsNumbers(str){
    return arr = str.split('').filter(function(item) {
