@@ -2,16 +2,10 @@
  //    Написать функцию, принимающую массив имен и возвращающую массив объектов вида {name: 'Vasya'}.
 
 function isArrNames(mainArr){
-  var tempArr = [];
-  mainArr.forEach(function(item,index){
-  var obj = {},
-      key = 'name';
-      obj[key] = item;
-      tempArr[index] = obj;
-  });
-   return tempArr;
+  return mainArr.map(function(name) {
+      return { name : name }
+   })
 }
-
 
 console.log(isArrNames(['Вася','Петя','Дима','Саша']));
 
@@ -21,9 +15,9 @@ console.log(isArrNames(['Вася','Петя','Дима','Саша']));
   //   Для решения использовать перебирающий метод массивов.
 
 function isTime(mainArr){
-   return 'Текущее время : '+ mainArr.reduce(function(sum, current) {
-  return  sum + ':' + current;
-}, );
+   return mainArr.reduce(function(time, current) {
+      return time + " : " + current;
+   }, 'Текущее время')
 }
 
 console.log(isTime(['00', '13', '24']));
@@ -33,20 +27,24 @@ console.log(isTime(['00', '13', '24']));
   //   Написать функцию, которая будет возвращать количество гласных в переданном тексте. Регистр любой. Решение не
   //   должно быть "топорным".
 
-3.function isVowels(str){
-    var arrAlfabet=['a', 'e' , 'y', 'u', 'i', 'o', 'а', 'е', 'и', 'э', 'о', 'я'];
+var arrAlfabet=['a', 'e' , 'y', 'u', 'i', 'o', 'а', 'е', 'и', 'э', 'о', , 'ю' ,'я'];
     var counter=0;
 
-    str=str.toLowerCase().split('');
-
-    str.forEach(function (item) { 
-        if(arrAlfabet.includes(item))
-          counter++;
-}); 
-   return counter;
+function isVowelsNumbers(str){
+   return arr = str.split('').filter(function(item) {
+         return isVowel(item).length > 0;
+      }).length;
 }
 
-console.log(isVowels('Привет медвед'));
+function isVowel(letter){
+   return arrAlfabet.filter(function(item) {
+      return letter.toLowerCase() === item.toLowerCase();
+   })
+}
+
+console.log(isVowelsNumbers('Привет медвед'));
+
+    
 
   // Задание 4:
   //   Написать функцию, которая будет принимать текст в качестве параметра. У текста должны быть пробелы, точки, запятые,
@@ -55,24 +53,25 @@ console.log(isVowels('Привет медвед'));
   //   Для каждого из предложений - отдельно вывести текст предложения и рядом количество букв в нем (без учета пробелов,
   //   запятых и т.д. - именно букв). Из ранее непройденных методов разрешается использовать только (!!!) регулярное выражение
   //   в методе split.
+
 function countSentencesLetters(str){
-   var separators = /[?!.]/,
-       tempStr = [];
-
-  str = str.split(separators);
-
-  str.forEach(function(item){
-      if(item.length) {
-       var itemCount = item;
-           itemCount = itemCount.trim().replace(/[\s.,%]/g,'').length;
-
-       console.log(item.trim()+ ': Letters quantity is: ' + itemCount);
-      }    
-       
-});  
+   return str.split( /[.!?]/ ).map(function(trimStr){
+      return trimStr.trim()
+   }).filter(function(strLenght){
+      return strLenght.length > 0
+   }).map(function(items) {
+      return items + ': Letters quantity is: ' + getLength( items ) 
+   }).forEach(function(item){ console.log( item ) 
+   });
 }
 
+function getLength(str) {
+   return str.split( /[\s,]/g ).join( '' ).split( '' ).length;
+}
+
+
 countSentencesLetters('Привет, студент! Студент... Как дела, студент?');
+
     // Функция должна работать следущим образом (потестировать на данном тексте):
     //   countSentencesLetters('Привет, студент! Студент... Как дела, студент?');
       // Привет, студент: Letters quantity is: 13
@@ -88,30 +87,32 @@ countSentencesLetters('Привет, студент! Студент... Как д
   //   При решении предположить, что у двух и более слов не может быть одинакового количества повторений.
   //   Для удобного разделения текста на слова сразу по нескольким знакам препинания - разрешается использовать регулярное
 
-function isRepeatWord(text) {
-   var wordCounterMax=1,counterCorrect,maxWord;
-   var punctRE = /[\u2000-\u206F\u2E00-\u2E7F\\'!"#$%&()*+,\-.\/:;<=>?@\[\]^_`{|}~]/g;
-   var spaceRE = /\s+/g;
-  
-   text=text.toLowerCase(). replace(punctRE, '').replace(spaceRE, ' ').split(' ').sort();
+function isRepeatWord( str ) {
+    var maxRepeat = 0,
+        result = '';
 
-  var word;
-
-  text.forEach(function(item){
-   if (word != item){
-    counterCorrect = 1;
-    word = item;
-   } else  if(word == item){
-      counterCorrect++;
-      word = item;
-      }
+   var text = str.toLowerCase().split( /[\s\n.!,?]/ ).filter(function(item){ 
+   return !!item 
+   }).sort();
    
-     if(counterCorrect > wordCounterMax){
-       wordCounterMax = counterCorrect;
-       maxWord = item;
+   var textObject = {};
+
+       text.forEach(function(item) {
+      if ( textObject.hasOwnProperty( item ) ) {
+         textObject[item]++;
+      } else {
+         textObject[item] = 1;
       }
-});
-   console.log( maxWord + ' ' + wordCounterMax);
+   } )
+   
+   for (var key in textObject) {
+      if (maxRepeat < textObject[key]) {
+         maxRepeat = textObject[key];
+         result = 'Максимальное повторение : ' + key + ' - ' + maxRepeat + ' раз ';
+      }
+   }
+   
+   return result;
 }
 
-isRepeatWord('g g )g g, g g. g?  Привет kokos d kokos привет кокос привет лена жена привет g! f f f f f f f f ');
+console.log(isRepeatWord('g g g g, g g. g?  Привет kokos d kokos привет кокос привет лена жена привет g! f f f f f f f f  g g'));
