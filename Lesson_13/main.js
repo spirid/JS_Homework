@@ -28,7 +28,10 @@ console.log(isTime(['00', '13', '24']));
   //   должно быть "топорным".
 
 var arrAlfabet=['a', 'e' , 'y', 'u', 'i', 'o', 'а', 'е', 'и', 'э', 'о', , 'ю' ,'я'];
+<<<<<<< HEAD
     var counter=0;
+=======
+>>>>>>> 246b37953a59b8c1a70dbca20f461fc47fcf8546
 
 function isVowelsNumbers(str){
    return arr = str.split('').filter(function(item) {
@@ -96,6 +99,10 @@ function isRepeatWord( str ) {
    }).sort();
    
    var textObject = {};
+<<<<<<< HEAD
+=======
+
+>>>>>>> 246b37953a59b8c1a70dbca20f461fc47fcf8546
        text.forEach(function(item) {
       if ( textObject.hasOwnProperty( item ) ) {
          textObject[item]++;
@@ -114,4 +121,8 @@ function isRepeatWord( str ) {
    return result;
 }
 
+<<<<<<< HEAD
 console.log(isRepeatWord('g g g g, g g. g?  Привет kokos d kokos привет кокос привет лена жена привет g! f f f f f f f f  g g'));
+=======
+console.log(isRepeatWord('g g g g, g g. g?  Привет kokos d kokos привет кокос привет лена жена привет g! f f f f f f f f  g g'));
+>>>>>>> 246b37953a59b8c1a70dbca20f461fc47fcf8546
