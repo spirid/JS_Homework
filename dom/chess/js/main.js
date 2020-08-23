@@ -19,7 +19,7 @@ function chessCellClicked() {
 }
 
 function buttonClicked(e) {
-    if (!(+xInput.value > 0 && +xInput.value < 10 ) || !(+yInput.value > 0 && +yInput.value < 10)){
+    if (!(+xInput.value > 0 && +xInput.value <= 10 ) || !(+yInput.value > 0 && +yInput.value <= 10)){
        alert("incorrect format \nplease use numbers from 1 to 10");
        return;
     }
