@@ -64,23 +64,27 @@ span:nth-child(2){
 }
 
 span:nth-child(3){
-    position: relative;
-    top: -130px;
-    left: -108px
+    position: absolute;
+    top: 35px;
+    left: 200px;
 }
 
 img{
 	padding: 20px;
 }
 
-i{
-    position: relative;
-    top: 10px;
-    left: -360px;
+
+i {
+    position: absolute;
+    top: 170px;
+    left: 75px;
+    color: #FD0000;
 }
 
+
  u{
-    position: relative;
-    left: -272px;
-    top: -66px;
+    position: absolute;
+    left: 200px;
+    top: 100px;
+    color: #0500FD;
 }
