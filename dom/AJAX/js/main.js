@@ -15,7 +15,7 @@ buttonUserSend.onclick = function() {
 
 function createRequestAndGetResponse() {
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://2reqres.in/api/users?page=2', true);
+    xhr.open('GET', 'https://reqres.in/api/users?page=2', true);
     xhr.send();
 
     xhr.onload = function() {
