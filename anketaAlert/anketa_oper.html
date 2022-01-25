@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>anketa</title>
+</head>
+<body>
+<script type="text/javascript">
+var name=prompt("Ваше имя:");
+	while(name=='' || name=='null'){
+      alert("нельзя что бы было пустым.")
+      name=prompt("Ваше имя:");
+	}
+
+var surname=prompt("Ваша фамилия:");
+  if (surname =='' || surname == null)
+  {
+  	surname='-';
+  }
+var middle_name=prompt("Ваше отчество:");
+    if (middle_name =='' || middle_name == null) 
+    {
+    	middle_name = '-';
+    }
+var age=prompt("Ваш возраст");
+	age=parseInt(age);
+	while ((isNaN(age)) || (age > 100) || (age < 5)){
+     		alert('не коректный формат даты');
+     		age=prompt("Ваш возраст");     	
+    }
+    
+
+var sex=confirm("ваш пол мужской?");
+    pol=(sex)?"мужской":"женский";
+	if((age > 63 && pol=="мужской") || (age > 58 && pol=="женский"))
+	  	answer="да";
+	else answer="нет";
+
+var ageInt=parseInt(age)+5;;
+var answer;
+var pol;
+age=parseInt(age);
+var leap_year=Math.floor(age/4);
+var no_leap_year= age - leap_year;
+var sum=leap_year*366+no_leap_year*365;
+	
+
+alert('Ваше ФИО: ' +name+' '+surname+' '+ middle_name+'\n'+'ваш возраст в годах: '+age+'\n'+'ваш вознаст в днях: '+sum +'\n'+'через 5 лет вам будет: '+ageInt+'\n'+'ваш пол:'+pol+'\n'+'вы на пенсии: '+answer);
+</script>
+</body>
+</html>

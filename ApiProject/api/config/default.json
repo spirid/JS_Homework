@@ -1,0 +1,10 @@
+{
+  "database": {
+    "tasks": "./database/tasks.json"
+  },
+
+  "routes": {
+    "tasks": "./routes/tasks.js",
+    "task": "./routes/task.js"
+  }
+}

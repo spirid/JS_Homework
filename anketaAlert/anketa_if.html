@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>anketa</title>
+</head>
+<body>
+<script type="text/javascript">
+let name=prompt("Ваше имя:");
+let surname=prompt("Ваша фамилия:");
+let otchstvo=prompt("Ваше отчество:");
+let age=prompt("Ваш возраст");
+let sex=confirm("ваш пол мужской?");
+let ageInt=parseInt(age)+5;
+let ageIntYear=ageInt*365;
+let answer;
+let pol;
+if ( age>50 ) {
+answer ="да";
+}
+else answer ="нет";
+if ( sex ) {
+pol="мужской";
+}
+else pol="женский";
+alert(`Ваше ФИО: ${name} ${surname} ${otchstvo}\nваш возраст в годах: ${age}\nваш вознаст в днях: ${ageIntYear} \nчерез 5 лет вам будет: ${ageInt}\nваш пол: ${pol}\nвы на пенсии: ${answer}`);
+</script>
+</body>
+</html>

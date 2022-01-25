@@ -1,0 +1,24 @@
+<h1 class="page-title">Task Info</h1>
+
+<div class="task-info">
+    <p>
+        <b>Task Title:</b>
+        {{task.title}}
+    </p>
+    <p>
+        <b>Task Description:</b>
+        {{task.description}}
+    </p>
+    <p>
+        <b>Task Status:</b>
+        {{task.status}}
+    </p>
+
+    <div class="task-info__buttons">
+        {{#ifCond task.status '!==' 'Done'}}
+            <a class="task-info__btn-edit button" href="#/task/{{task.id}}/edit">Edit Task</a>
+        {{/ifCond}}
+
+        <a class="task-info__btn-back button" href="#/tasks">Back to List</a>
+    </div>
+</div>

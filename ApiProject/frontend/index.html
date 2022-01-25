@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Battle Ship</title>
+</head>
+<body>
+    <div class="page-container">
+        <div id="game" style="display: none"><div id="matrix" style="position: fixed; left:20px; top:50px;"></div>
+            <div class="wrap">
+                <div class="battlefield">
+                    <div id="text_top" class="flex text-top">Create Field</div>
+                    <div class="flex outer">
+
+                        <div class="field field-human">
+                            <div id="field_human" class="ships"></div>
+                        </div>
+
+
+
+                        <div class="field field-computer" hidden>
+                            <div id="field_computer" class="ships"></div>
+                        </div>
+                        <div id="instruction" class="instruction">
+                            <div id="type_placement" class="type-placement-box">
+                                1. <span class="link" data-target="random">Random method.</span><br>
+                                2. <span class="link" data-target="manually">Manual method.</span>
+                            </div>
+                            <div id="ships_collection" class="ships-collection" hidden>
+                                <p>Drag the ships to the playing field with the mouse. To install the ship vertically, right-click on it.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <span id="play" class="btn-play" data-hidden="true">Play</span>
+                    <div id="service_text" class="service-text"></div>
+                    <span id="newgame" class="btn-play btn-newgame" data-hidden="true">Продолжить</span>
+                </div>
+            </div>
+
+            <ul class="initial-ships" hidden>
+                <li>
+                    <div id="fourdeck1" class="ship fourdeck"></div>
+                    <div id="tripledeck1" class="ship tripledeck tripledeck1"></div>
+                    <div id="tripledeck2" class="ship tripledeck tripledeck2"></div>
+                </li>
+                <li>
+                    <div id="doubledeck1" class="ship doubledeck"></div>
+                    <div id="doubledeck2" class="ship doubledeck doubledeck2"></div>
+                    <div id="doubledeck3" class="ship doubledeck doubledeck3"></div>
+                </li>
+                <li>
+                    <div id="singledeck1" class="ship singledeck"></div>
+                    <div id="singledeck2" class="ship singledeck singledeck2"></div>
+                    <div id="singledeck3" class="ship singledeck singledeck3"></div>
+                    <div id="singledeck4" class="ship singledeck singledeck4"></div>
+                </li>
+            </ul></div>
+        <div class="header-container"></div>
+        <div class="login-container hide"></div>
+        <div class="content-container">
+            <h1 class="page-title">Loading....</h1>
+        </div>
+
+        <div class="footer-container"></div>
+    </div>
+</body>
+</html>

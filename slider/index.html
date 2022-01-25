@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/imgChanger.js" defer></script>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<header>
+		<div onmousemove="changeButton(0)"  onclick="imgPrev(i)" onmouseleave="returnButton(0)">
+			<button><</button>
+		</div>
+				<div>
+	              <img id="carausel">
+	               <ul>
+	             	<li value="1">1</li>
+	             	<li value="2">2</li>
+	             	<li value="3">3</li>
+	             	<li value="4">4</li>
+	             	<li value="5">5</li>
+	             	<li value="6">6</li>
+	             	<li value="7">7</li>
+	             	<li value="8">8</li>
+                  </ul>
+				</div>
+	    <div onmousemove="changeButton(1)" onclick="imgNext(i)" onmouseleave="returnButton(1)">
+			<button>></button>
+		</div>
+	</header>
+     
+</body>
+</html>

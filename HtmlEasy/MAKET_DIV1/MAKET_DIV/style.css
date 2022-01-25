@@ -1,0 +1,45 @@
+body{
+	margin:0px;
+}
+
+header{
+	background-color: #3083ff;
+	text-align: center;
+	padding: 20px;
+	color:blue;
+}
+.menu{
+	width: 125px;
+	float: left;
+	background: yellow;
+	padding-right: 40px;
+}
+.main{
+	margin-left: 0px;
+
+	background: url("img/skrip.gif") repeat-y;
+	background-position: right;
+	margin-left: 200px;
+}
+footer{
+	background-color: #3083ff;
+	text-align: center;
+	padding: 20px;
+	color:blue;
+}
+
+h2{
+	text-transform: uppercase;
+	text-align: center;
+}
+img{
+	margin-right: 20px;
+	float: left;
+}
+.clearfix:after {
+	content		: ".";
+	visibility	: hidden;
+	display		: block;
+	height		: 0;
+	clear		: both;
+}

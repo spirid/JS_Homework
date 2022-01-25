@@ -1,0 +1,19 @@
+<header class="header">
+    <a class="time"></a>
+     <a class="header__link {{#if isAboutPage}}active{{/if}}" href="/#/">
+        About
+    </a>
+    <a class="header__link {{#if isTasksPage}}active{{/if}}" href="/#/tasks">
+        Battle Ship Game
+    </a>
+    <a class="header__link {{#if isBestPlayersPage}}active{{/if}}" href="/#/bestPlayers">
+        Best Player
+    </a>
+    <a class="header__link {{#if isRulePage}}active{{/if}}" href="/#/rules">
+        Rules
+    </a>
+    <a id="userNameInPage">{{#if isLogin}}Hello, {{loginName}}{{/if}}</a>
+</header>
+<button id="show" {{#if isLogin}}style="display: none;"{{/if}}>New Game</button>
+
+

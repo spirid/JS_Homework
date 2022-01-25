@@ -1,0 +1,17 @@
+.incorectInfo{
+   border: solid 3px red;
+}
+
+input{
+ display: block;
+}
+
+input[type=submit]{
+ margin: 20px 0 0 0;
+}
+
+.error{
+	padding: 20px 0 0 0;
+	color:red;
+	white-space:pre-wrap;
+}

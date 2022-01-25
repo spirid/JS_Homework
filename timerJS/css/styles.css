@@ -1,0 +1,57 @@
+body {
+    min-width: 500px;
+}
+
+.buttons {
+    position: relative;
+    width: 480px;
+    height: 95px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+button {
+    width: 200px;
+    height: 35px;
+    margin: 30px 20px;
+    border: 1px solid black;
+    border-radius: 7px;
+    box-shadow: 0 0 5px 1px black;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#save-button {
+    position: absolute;
+    top: 200px;
+    left: 120px;
+}
+
+#reset-button {
+    position: absolute;
+    top: 149px;
+    left: 120px;
+}
+
+.stop-watch {
+    display: flex;
+    justify-content: space-around;
+    width: 330px;
+    margin: 0 auto;
+}
+
+.stop-watch div {
+    width: 100px;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: rgb(245, 245, 245);
+    text-align: center;
+    font-size: 45px;
+}
+
+.marks {
+    width: 140px;
+    margin: 140px auto 40px;
+    text-align: center;
+    font: 20px sans-serif;
+}

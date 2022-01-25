@@ -1,0 +1,84 @@
+header{
+	display: grid;
+	grid-template-columns: 50px 1fr 50px; 
+	grid-template-rows: 200px;
+	align-items: center;
+	justify-content: space-between;
+	background: #222222;
+	border: solid red 1px;
+	border-radius: 50px;
+} 
+
+button{
+  color: black;
+  font-size: 1em;
+  position: relative;
+  top: 80px;
+  width: 2.5em;
+  height: 2.5em;
+  vertical-align: middle;
+  text-decoration: none;
+  border: .5em solid rgba(0,0,0,0);
+  border-radius: 100%;
+  background: rgb(245,245,245) linear-gradient(rgb(245,245,245), rgb(188,192,193)) 50% 50% / calc(1.5em + .5em*2) calc(1.5em + .5em*2);
+  box-shadow:
+   inset 0 -3px 10px rgba(255,255,255,1),
+   inset 0 3px 10px rgba(0,0,0,.4),
+   0 2px 4px rgba(0,0,0,.9);
+}
+
+
+
+header div{
+	display: grid;
+	justify-content: center;
+	height: 100%;
+
+}
+
+header div:first-child{
+	border: solid red 1px;
+    border-radius: 50px 0px 0px 50px;
+}
+
+header div:last-child{
+	border: solid red 1px;
+    border-radius: 0px 50px 50px 0;
+}
+
+
+
+
+img {
+	height: 200px;
+}
+
+div>button{
+	opacity: 0.5;
+}
+
+header div>span:
+{
+	grid-template-columns: : 1fr;
+}
+
+span{
+	display: contents;
+}
+
+ul>li{
+	display:inline;
+	border: solid rgb(66, 64, 64) 5px;
+    border-radius: 10px 0;
+    background: rgba(63, 168, 192, 0.42);
+    padding: 0 0.2em;
+    font-weight: bold;
+}
+
+ul{
+    margin-block-end: 0;
+    margin-block-start: -1.9em;
+    text-align: center;
+    padding-inline-start: 0px;
+    background: radial-gradient(#f30606, transparent);
+}

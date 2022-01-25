@@ -1,0 +1,88 @@
+h1{ 
+    font-family: 'Dancing Script', cursive;
+	font-size:2em;
+	text-align: center;
+	text-shadow: 5px 5px 5px yellow, 0 0 1em red;;
+	background: #10C1CE;
+    background: -moz-radial-gradient(center, #10C1CE 0%, #A43681 48%, #010808 100%);
+    background: -webkit-radial-gradient(center, #10C1CE 0%, #A43681 48%, #010808 100%);
+    background: radial-gradient(ellipse at center, #10C1CE 0%, #A43681 48%, #010808 100%);
+}
+body{
+	background:url(http://www.i-sonnik.ru/wp-content/uploads/2017/10/chernyj-kot.jpg) no-repeat;
+    -moz-background-size: 100%; 
+    -webkit-background-size: 100%; 
+    -o-background-size: 100%; 
+    color:white;
+    width: 100%;
+    height: 100%;
+}
+div#menu li{
+        display:inline-block; 
+        background-color: #008080 ;
+ }
+a:visited{
+	color:yellow;
+}
+
+li{
+	width: 23.5%;
+}
+ul
+{
+ color: white;
+}
+li:nth-child(1):hover 
+{
+ background-color: yellow;
+ color: red;
+ border-style: dotted;
+ border-color: purple;
+}
+li:nth-child(2):hover 
+{
+ background-color: aqua;
+ color: green;
+ border-style: solid;
+ border-color: red;
+}
+li:nth-child(3):hover 
+{
+ background-color: blue;
+ color: yellow;
+ border-style: double;
+ border-color: green;
+}
+li:nth-child(4):hover 
+{
+ background-color: orange;
+ color: aqua;
+ border-style: dashed;
+ border-color: red;
+}
+#fisrt_block {
+	width: 100%;
+	height: 25%
+}
+#second_block {
+	width: 100%;
+	height: 25%
+}
+#third_block {
+	width: 100%;
+	height: 25%
+}
+#fourth_block {
+	width: 100%;
+	height: 25%
+}
+#stih
+{
+ color:red;
+ font-family: 'Pacifico', cursive;
+}
+h2{
+	font-family: 'Bellota', cursive;
+	color: aqua;
+}
+

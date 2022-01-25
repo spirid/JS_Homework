@@ -1,0 +1,21 @@
+div{
+	text-align: center;
+}
+body{
+	background: url(ramka.png) no-repeat;
+    -moz-background-size: 70%; 
+    -webkit-background-size: 70%; 
+    -o-background-size: 70%; 
+    background-size: 100%;
+   
+    position: inherit;
+}
+#center { 
+  width: 35%;
+  height: 35%;
+  margin-top: 10%;  
+  margin-left: 18%; 
+  margin-right: 18%;
+  margin-bottom: 18%;
+  border:solid red 1px;
+}

@@ -1,0 +1,17 @@
+<h1 class="page-title">Task Edit</h1>
+
+<div class="task-edit">
+    <p>
+        <b>Task Title:</b>
+        <input class="task-edit__title" type="text" value="{{task.title}}">
+    </p>
+    <p>
+        <b>Task Description:</b>
+        <textarea class="task-edit__description">{{task.description}}</textarea>
+    </p>
+
+    <div class="task-edit__buttons">
+        <button class="task-edit__btn-save button">Save Task</button>
+        <a class="task-edit__btn-back button" href="#/task/{{task.id}}">Back to Info</a>
+    </div>
+</div>
